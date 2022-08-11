@@ -1,4 +1,4 @@
-const API = 'https://youtube-v31.p.rapidapi.com/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50';
+const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCejPjiEQa7i2Lj_fQBeKMvA&part=snippet%2Cid&order=date&maxResults=50';
 
 const content = null || document.getElementById('content');
 
@@ -25,7 +25,7 @@ async function fetchData(urlApi) {
         <div
           class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none"
         >
-          <img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full" />
+          <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full" />
         </div>
         <div class="mt-4 flex justify-between">
           <h3 class="text-sm text-gray-700">
@@ -36,7 +36,8 @@ async function fetchData(urlApi) {
       </div>
         `).slice(0, 4).join('')}
         `;
+        content.innerHTML = view;
     } catch (error) {
-        
+        console.log(error);
     }
 })(); //Cuando cargue el archivo, se ejecutara la funcion
